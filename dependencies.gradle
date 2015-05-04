@@ -1,0 +1,46 @@
+project.ext.set("libraries", "")
+
+def springVersion = '4.1.4.RELEASE'
+
+project.libraries = [
+    //Web
+    servletApi: "javax.servlet:javax.servlet-api:3.1.0",
+    jstl: 'javax.servlet:jstl:1.2',
+
+    //Spring
+	springCore: "org.springframework:spring-core:$springVersion",
+    springWeb: "org.springframework:spring-web:$springVersion",
+    springMvc: "org.springframework:spring-webmvc:$springVersion",
+    springOrm: "org.springframework:spring-orm:$springVersion",
+    springTx: "org.springframework:spring-tx:$springVersion",
+    springCtx: "org.springframework:spring-context:$springVersion",
+    springTest: "org.springframework:spring-test:$springVersion",
+
+    //json
+    jacksonCore: 'com.fasterxml.jackson.core:jackson-core:2.5.0',
+    jacksonAnnotation: 'com.fasterxml.jackson.core:jackson-annotations:2.5.0',
+    jacksonBind:'com.fasterxml.jackson.core:jackson-databind:2.5.0',
+
+    //Tests
+    junit: "junit:junit:4.10",
+    mockitoCore: "org.mockito:mockito-core:1.9.5",
+
+    //Logs
+    slf4jApi:      "org.slf4j:slf4j-api:1.6.6",
+    slf4jLog4j12:      "org.slf4j:slf4j-log4j12:1.6.6",
+
+    //Vaadin
+    vaadin: "com.vaadin:vaadin:7.4.5",
+
+    //Additional frameworks
+    crawler4j:  dependencies.create("edu.uci.ics:crawler4j:3.5") {
+        exclude group: "log4j", module: "log4j"
+        exclude group: "org.slf4j", module: "slf4j-api"
+        exclude group: "commons-codec", module: "commons-codec"
+    },
+
+    quartz: "org.quartz-scheduler:quartz:2.2.1",
+    quartzJobs: "org.quartz-scheduler:quartz-jobs:2.2.1",
+
+    guava: "com.google.guava:guava:17.0",
+]
