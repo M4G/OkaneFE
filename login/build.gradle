@@ -1,3 +1,8 @@
 dependencies {
-    compile libraries.vaadin
+    compile libraries.vaadinClient
+    compile libraries.vaadinVaadinClientCompiler
+    compile libraries.vaadinServer
+    compile libraries.vaadinShared
+    compile libraries.vaadinThemes
+    compile libraries.vaadinVaadinSassCompiler
 }

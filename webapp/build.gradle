@@ -1,0 +1,5 @@
+idea {
+    module {
+        sourceDirs += file('src/main/WEB-INF')
+    }
+}

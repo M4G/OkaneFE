@@ -7,7 +7,7 @@ allprojects {
             //cacheChangingModulesFor 10, 'minutes'
             cacheChangingModulesFor 0, 'seconds'
             cacheDynamicVersionsFor 0, 'seconds'
-            failOnVersionConflict()
+            //failOnVersionConflict()
         }
     }
 }
@@ -25,10 +25,17 @@ subprojects {
 }
 
 idea {
+    project {
+        vcs = 'Git'
+    }
     module {
         excludeDirs += file('.gradle')
         excludeDirs += file('.idea')
         excludeDirs += file('build')
         excludeDirs += file('out')
     }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
 }

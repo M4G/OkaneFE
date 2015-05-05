@@ -30,7 +30,12 @@ project.libraries = [
     slf4jLog4j12:      "org.slf4j:slf4j-log4j12:1.6.6",
 
     //Vaadin
-    vaadin: "com.vaadin:vaadin:6.8.16",
+    vaadinClient: "com.vaadin:vaadin-client:7.4.5",
+    vaadinVaadinClientCompiler: "com.vaadin:vaadin-client-compiler:7.4.5",
+    vaadinServer: "com.vaadin:vaadin-server:7.4.5",
+    vaadinShared: "com.vaadin:vaadin-shared:7.4.5",
+    vaadinThemes: "com.vaadin:vaadin-themes:7.4.5",
+    vaadinVaadinSassCompiler: "com.vaadin:vaadin-sass-compiler:0.9.12",
 
     //Additional frameworks
     crawler4j:  dependencies.create("edu.uci.ics:crawler4j:3.5") {
