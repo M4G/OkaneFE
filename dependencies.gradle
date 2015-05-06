@@ -32,6 +32,7 @@ project.libraries = [
     //Vaadin
     vaadinClient: "com.vaadin:vaadin-client:7.4.5",
     vaadinVaadinClientCompiler: "com.vaadin:vaadin-client-compiler:7.4.5",
+    vaadinVaadinClientCompiled: "com.vaadin:vaadin-client-compiled:7.4.5",
     vaadinServer: "com.vaadin:vaadin-server:7.4.5",
     vaadinShared: "com.vaadin:vaadin-shared:7.4.5",
     vaadinThemes: "com.vaadin:vaadin-themes:7.4.5",
