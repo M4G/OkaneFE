@@ -40,7 +40,7 @@ public class Dashboard extends HorizontalSplitPanel implements View{
         workspace.addComponent(content);
         setFirstComponent(sideMenu);
         setSecondComponent(workspace);
-        setSplitPosition(20, Unit.PERCENTAGE);
+        setSplitPosition(15, Unit.PERCENTAGE);
         setWidth(100, Unit.PERCENTAGE);
         setHeight(100, Unit.PERCENTAGE);
     }
