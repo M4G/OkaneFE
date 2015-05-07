@@ -1,6 +1,6 @@
 package com.m4g.web;
 
-import com.m4g.view.LoginUI;
+import com.m4g.ui.EntryPointUI;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinServlet;
 
@@ -14,6 +14,6 @@ import javax.servlet.annotation.WebServlet;
  */
 
 @WebServlet(urlPatterns = "/*")
-@VaadinServletConfiguration(ui = LoginUI.class, productionMode = false)
-public class LoginServlet extends VaadinServlet {
+@VaadinServletConfiguration(ui = EntryPointUI.class, productionMode = false)
+public class EntryPointServlet extends VaadinServlet {
 }
