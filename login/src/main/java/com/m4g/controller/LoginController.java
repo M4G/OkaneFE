@@ -11,7 +11,6 @@ import com.vaadin.ui.Button;
 public class LoginController implements Button.ClickListener {
     @Override
     public void buttonClick(Button.ClickEvent event) {
-        String host = event.getButton().getUI().getPage().getLocation().getHost();
-        event.getButton().getUI().getPage().setLocation(host+"/dashboard");
+        event.getButton().getUI().getPage().setLocation("/dashboard");
     }
 }

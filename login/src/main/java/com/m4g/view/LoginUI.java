@@ -3,11 +3,11 @@ package com.m4g.view;
 import com.m4g.controller.LoginController;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
-import com.vaadin.server.FontAwesome;
-import com.vaadin.server.Sizeable;
-import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
+
+import java.io.File;
 
 /**
  * Created with IntelliJ IDEA.
@@ -23,6 +23,7 @@ public class LoginUI extends UI {
     private PasswordField password;
     private TextField     username;
     private Button        loginButton;
+    private Image         logo;
 
     @Override
     protected void init(VaadinRequest request) {
@@ -41,12 +42,19 @@ public class LoginUI extends UI {
         loginButton = new Button("Login");
         //TODO: change instantination to injection
         loginButton.addClickListener(new LoginController());
+
+        String basepath = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();
+        FileResource resource = new FileResource(new File(basepath + "/WEB-INF/images/logo.png"));
+        logo = new Image("",resource);
     }
 
     private void buildLayout() {
         GridLayout grid = new GridLayout(3,3);
         grid.setWidth(100, Unit.PERCENTAGE);
         grid.setHeight(100, Unit.PERCENTAGE);
+
+        grid.addComponent(logo, 1, 0);
+        grid.setComponentAlignment(logo, Alignment.MIDDLE_CENTER);
 
         VerticalLayout loginForm = new VerticalLayout();
         loginForm.setSpacing(true);
