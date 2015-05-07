@@ -38,6 +38,12 @@ project.libraries = [
     vaadinThemes: "com.vaadin:vaadin-themes:7.4.5",
     vaadinVaadinSassCompiler: "com.vaadin:vaadin-sass-compiler:0.9.12",
 
+    //Vaadin add ons
+    vaadinDomAO: 'org.vaadin.addons:dom:0.1.0',
+    vaadinAnimatorAO: 'org.vaadin.addons:animator:2.0.0',
+
+
+
     //Additional frameworks
     crawler4j:  dependencies.create("edu.uci.ics:crawler4j:3.5") {
         exclude group: "log4j", module: "log4j"

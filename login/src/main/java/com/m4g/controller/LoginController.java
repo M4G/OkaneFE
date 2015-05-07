@@ -1,19 +1,17 @@
 package com.m4g.controller;
 
-import com.m4g.view.LoginUI;
-import com.vaadin.annotations.VaadinServletConfiguration;
-import com.vaadin.server.VaadinServlet;
-
-import javax.servlet.annotation.WebServlet;
+import com.vaadin.ui.Button;
 
 /**
  * Created with IntelliJ IDEA.
  * User: Meir Gutnik
- * Date: 5/6/15
- * Time: 1:26 PM
+ * Date: 5/7/15
+ * Time: 2:57 PM
  */
-
-@WebServlet(urlPatterns = "/*")
-@VaadinServletConfiguration(ui = LoginUI.class, productionMode = false)
-public class LoginController extends VaadinServlet {
+public class LoginController implements Button.ClickListener {
+    @Override
+    public void buttonClick(Button.ClickEvent event) {
+        String host = event.getButton().getUI().getPage().getLocation().getHost();
+        event.getButton().getUI().getPage().setLocation(host+"/dashboard");
+    }
 }
