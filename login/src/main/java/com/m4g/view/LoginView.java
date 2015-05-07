@@ -3,6 +3,8 @@ package com.m4g.view;
 import com.m4g.controller.LoginController;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
@@ -18,15 +20,15 @@ import java.io.File;
 
 @Title("Login")
 @Theme("valo")
-public class LoginUI extends UI {
+public class LoginView extends GridLayout implements View{
 
     private PasswordField password;
     private TextField     username;
     private Button        loginButton;
     private Image         logo;
 
-    @Override
-    protected void init(VaadinRequest request) {
+    public LoginView() {
+        super(3,3);
         configureComponents();
         buildLayout();
     }
@@ -49,12 +51,11 @@ public class LoginUI extends UI {
     }
 
     private void buildLayout() {
-        GridLayout grid = new GridLayout(3,3);
-        grid.setWidth(100, Unit.PERCENTAGE);
-        grid.setHeight(100, Unit.PERCENTAGE);
+        setWidth(100, Unit.PERCENTAGE);
+        setHeight(100, Unit.PERCENTAGE);
 
-        grid.addComponent(logo, 1, 0);
-        grid.setComponentAlignment(logo, Alignment.MIDDLE_CENTER);
+        addComponent(logo, 1, 0);
+        setComponentAlignment(logo, Alignment.MIDDLE_CENTER);
 
         VerticalLayout loginForm = new VerticalLayout();
         loginForm.setSpacing(true);
@@ -65,9 +66,12 @@ public class LoginUI extends UI {
         loginForm.addComponent(loginButton);
         loginForm.setComponentAlignment(loginButton, Alignment.MIDDLE_CENTER);
 
-        grid.addComponent(loginForm, 1, 1);
-        grid.setComponentAlignment(loginForm, Alignment.MIDDLE_CENTER);
+        addComponent(loginForm, 1, 1);
+        setComponentAlignment(loginForm, Alignment.MIDDLE_CENTER);
+    }
 
-        setContent(grid);
+    @Override
+    public void enter(ViewChangeListener.ViewChangeEvent event) {
+
     }
 }
