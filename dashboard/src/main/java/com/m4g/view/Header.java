@@ -18,14 +18,18 @@ public class Header extends CustomComponent {
         HorizontalLayout content = new HorizontalLayout();
 
         Button config = new Button();
+        config.setId("config");
         config.setIcon(FontAwesome.GEAR);
         content.addComponent(config);
 
         Button info = new Button();
+        info.setId("info");
         info.setIcon(FontAwesome.INFO_CIRCLE);
+        info.addClickListener(new HeaderController());
         content.addComponent(info);
 
         Button logout = new Button();
+        logout.setId("logout");
         logout.setIcon(FontAwesome.POWER_OFF);
         //TODO: change to inject
         logout.addClickListener(new HeaderController());
