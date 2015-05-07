@@ -1,10 +1,13 @@
 package com.m4g.view;
 
+import com.m4g.controller.LoginController;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
+import com.vaadin.server.FontAwesome;
 import com.vaadin.server.Sizeable;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.*;
+import com.vaadin.ui.themes.ValoTheme;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,9 +31,16 @@ public class LoginUI extends UI {
     }
 
     private void configureComponents() {
-        username = new TextField();
-        password = new PasswordField();
+        username = new TextField("Username");
+        username.setIcon(FontAwesome.USER);
+        username.focus();
+
+        password = new PasswordField("Password");
+        password.setIcon(FontAwesome.LOCK);
+
         loginButton = new Button("Login");
+        //TODO: change instantination to injection
+        loginButton.addClickListener(new LoginController());
     }
 
     private void buildLayout() {
