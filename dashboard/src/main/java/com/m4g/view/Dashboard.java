@@ -1,10 +1,7 @@
 package com.m4g.view;
 
-import com.vaadin.annotations.Theme;
-import com.vaadin.annotations.Title;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
-import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.*;
 
 /**
@@ -13,12 +10,11 @@ import com.vaadin.ui.*;
  * Date: 5/7/15
  * Time: 2:46 PM
  */
-public class Dashboard extends HorizontalSplitPanel implements View{
+public class Dashboard extends HorizontalLayout implements View{
 
     private HorizontalLayout header;
     private VerticalLayout workspace;
-    private VerticalLayout sideMenu;
-    private VerticalLayout content;
+    private Panel content;
 
     public Dashboard() {
         configureComponents();
@@ -29,20 +25,25 @@ public class Dashboard extends HorizontalSplitPanel implements View{
         header = new HorizontalLayout();
         header.addComponent(new Header());
         workspace = new VerticalLayout();
-        sideMenu = new VerticalLayout();
-        sideMenu.addComponent(new SideMenu());
-        content = new VerticalLayout();
+        content = new Panel();
     }
 
     private void buildLayout() {
+        addStyleName("mainview");
         workspace.addComponent(header);
         workspace.setComponentAlignment(header, Alignment.MIDDLE_RIGHT);
+        content.setWidth(100, Unit.PERCENTAGE);
+        content.setHeight(100, Unit.PERCENTAGE);
         workspace.addComponent(content);
-        setFirstComponent(sideMenu);
-        setSecondComponent(workspace);
-        setSplitPosition(15, Unit.PERCENTAGE);
+        SideMenu menu = new SideMenu();
+        addComponent(menu);
+        addComponent(workspace);
         setWidth(100, Unit.PERCENTAGE);
         setHeight(100, Unit.PERCENTAGE);
+    }
+
+    public void setContent(Component component){
+        content.setContent(component);
     }
 
     @Override

@@ -1,6 +1,7 @@
 /*apply from: 'http://plugins.jasoft.fi/vaadin.plugin'*/
 
 dependencies {
+    compile libraries.servletApi
     compile libraries.vaadinClient
     compile libraries.vaadinVaadinClientCompiled
     compile libraries.vaadinServer
@@ -8,13 +9,12 @@ dependencies {
     compile libraries.vaadinThemes
     compile libraries.vaadinVaadinSassCompiler
 
-    compile libraries.vaadinSpringAO
-
-    compile project(':localization')
+    compile libraries.vaadinAnimatorAO
+    compile libraries.vaadinDomAO
 }
 
 /*
 vaadin {
     version '7.4.5'
-    widgetset 'com.m4g.web.LoginServlet'
+    widgetset 'com.m4g.controller.LoginController'
 }*/

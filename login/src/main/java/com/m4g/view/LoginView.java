@@ -1,13 +1,16 @@
 package com.m4g.view;
 
 import com.m4g.controller.LoginController;
-import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
-import com.vaadin.server.*;
+import com.vaadin.server.FileResource;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.server.VaadinService;
 import com.vaadin.ui.*;
-import com.vaadin.ui.themes.ValoTheme;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 
@@ -18,9 +21,11 @@ import java.io.File;
  * Time: 1:24 PM
  */
 
-@Title("Login")
-@Theme("valo")
+
 public class LoginView extends GridLayout implements View{
+
+    @Autowired
+    MessageSource messageSource;
 
     private PasswordField password;
     private TextField     username;
@@ -34,7 +39,7 @@ public class LoginView extends GridLayout implements View{
     }
 
     private void configureComponents() {
-        username = new TextField("Username");
+        username = new TextField(messageSource.getMessage("title.username",null,UI.getCurrent().getLocale()));
         username.setIcon(FontAwesome.USER);
         username.focus();
 
@@ -65,6 +70,7 @@ public class LoginView extends GridLayout implements View{
         loginForm.setComponentAlignment(password, Alignment.MIDDLE_CENTER);
         loginForm.addComponent(loginButton);
         loginForm.setComponentAlignment(loginButton, Alignment.MIDDLE_CENTER);
+        loginForm.addStyleName("login-panel");
 
         addComponent(loginForm, 1, 1);
         setComponentAlignment(loginForm, Alignment.MIDDLE_CENTER);

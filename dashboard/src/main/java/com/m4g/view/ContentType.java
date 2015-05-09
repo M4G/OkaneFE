@@ -10,7 +10,7 @@ public enum ContentType {
             "sales", EmptyView.class, FontAwesome.BAR_CHART_O, false), TRANSACTIONS(
             "transactions", EmptyView.class, FontAwesome.TABLE, false), REPORTS(
             "reports", EmptyView.class, FontAwesome.FILE_TEXT_O, true), SCHEDULE(
-            "schedule", EmptyView.class, FontAwesome.CALENDAR_O, false);
+            "schedule", CalendarView.class, FontAwesome.CALENDAR_O, false);
 
     private final String viewName;
     private final Class<? extends View> viewClass;

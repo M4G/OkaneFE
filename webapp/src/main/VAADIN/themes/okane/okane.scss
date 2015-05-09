@@ -1,0 +1,9 @@
+@import "../valo/valo.scss";
+@import "sidemenu.scss";
+@import "login.scss";
+
+@mixin okane {
+  @include valo;
+  @include okane-sidemenu;
+  @include okane-login;
+}

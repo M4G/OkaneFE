@@ -2,7 +2,4 @@ dependencies {
     compile libraries.springCore
     compile libraries.springWeb
     compile libraries.springMvc
-    compile libraries.vaadinSpringAO
-
-    compile project(':localization')
 }

@@ -1,5 +1,7 @@
 include 'webapp',
         'login',
         'dashboard',
-        'manager'
+        'manager',
+        'calendar',
+        'localization'
 

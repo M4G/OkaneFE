@@ -41,6 +41,7 @@ project.libraries = [
     //Vaadin add ons
     vaadinDomAO: 'org.vaadin.addons:dom:0.1.0',
     vaadinAnimatorAO: 'org.vaadin.addons:animator:2.0.0',
+    vaadinSpringAO: 'com.vaadin:vaadin-spring:1.0.0.beta1',
 
 
 
