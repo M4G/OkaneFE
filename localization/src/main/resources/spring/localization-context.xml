@@ -8,6 +8,6 @@
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basename" value="bundles/messages"/>
         <!-- Do not use System Locale file as default. Windows & Linux could have different default locale -->
-        <property name="fallbackToSystemLocale" value="false" />
+        <property name="fallbackToSystemLocale" value="true" />
     </bean>
 </beans>

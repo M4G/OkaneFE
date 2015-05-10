@@ -6,6 +6,7 @@ import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.EnableVaadin;
 import com.vaadin.spring.annotation.SpringUI;
+import com.vaadin.spring.navigator.SpringViewProvider;
 import com.vaadin.spring.server.SpringVaadinServlet;
 import com.vaadin.ui.UI;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,9 @@ public class EntryPointUI extends UI {
 
     private Navigator navigator;
 
+    @Autowired
+    private SpringViewProvider viewProvider;
+
     @Override
     protected void init(VaadinRequest request) {
         navigator = new Navigator(this, this);
@@ -41,5 +45,8 @@ public class EntryPointUI extends UI {
         setNavigator(navigator);
         navigator.navigateTo(Views.LOGIN.getViewName());
         setStyleName("loginview");
+
+        Navigator navigator = new Navigator(this, this);
+        navigator.addProvider(viewProvider);
     }
 }

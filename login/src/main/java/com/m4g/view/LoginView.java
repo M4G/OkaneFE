@@ -1,17 +1,20 @@
 package com.m4g.view;
 
 import com.m4g.controller.LoginController;
-import com.vaadin.annotations.Title;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.FileResource;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.server.VaadinService;
+import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.stereotype.*;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.File;
 
 /**
@@ -21,7 +24,7 @@ import java.io.File;
  * Time: 1:24 PM
  */
 
-
+@SpringView(name = "login")
 public class LoginView extends GridLayout implements View{
 
     @Autowired
@@ -34,6 +37,10 @@ public class LoginView extends GridLayout implements View{
 
     public LoginView() {
         super(3,3);
+    }
+
+    @PostConstruct
+    public void init(){
         configureComponents();
         buildLayout();
     }
