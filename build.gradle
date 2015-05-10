@@ -89,6 +89,7 @@ idea {
                 def artifact = builder.artifact(type: 'exploded-war', name: "${gradleProject.name}:Web exploded") {
                     'output-path'("\$PROJECT_DIR\$/out/artifacts/${gradleProject.name}_Web_exploded")
                     root(id: 'root') {
+                        element(id: 'javaee-facet-resources', facet: "localization/web/Web");
                         element(id: 'javaee-facet-resources', facet: "${gradleProject.name}/web/Web");
                         element(id: 'directory', name: 'WEB-INF') {
                             element(id: 'directory', name: 'classes') {
