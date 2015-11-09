@@ -1,7 +1,9 @@
 package com.m4g.view;
 
+import com.m4g.config.Views;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.*;
 
 /**
@@ -10,13 +12,14 @@ import com.vaadin.ui.*;
  * Date: 5/7/15
  * Time: 2:46 PM
  */
-public class Dashboard extends HorizontalLayout implements View{
+@SpringView(name = Views.DASHBOARD)
+public class DashboardView extends HorizontalLayout implements View{
 
     private HorizontalLayout header;
     private VerticalLayout workspace;
     private Panel content;
 
-    public Dashboard() {
+    public DashboardView() {
         configureComponents();
         buildLayout();
     }

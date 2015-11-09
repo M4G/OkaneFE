@@ -1,18 +1,16 @@
 package com.m4g.view;
 
-import com.m4g.controller.LoginController;
+import com.m4g.config.Paths;
+import com.m4g.config.Views;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.FileResource;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.server.VaadinService;
 import com.vaadin.spring.annotation.SpringView;
-import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.stereotype.*;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.io.File;
@@ -24,8 +22,8 @@ import java.io.File;
  * Time: 1:24 PM
  */
 
-@SpringView(name = "login")
-public class LoginView extends GridLayout implements View{
+@SpringView(name = Views.LOGIN)
+public class LoginView extends GridLayout implements View, Button.ClickListener{
 
     @Autowired
     MessageSource messageSource;
@@ -55,7 +53,7 @@ public class LoginView extends GridLayout implements View{
 
         loginButton = new Button("Login");
         //TODO: change instantination to injection
-        loginButton.addClickListener(new LoginController());
+        loginButton.addClickListener(this);
 
         String basepath = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();
         FileResource resource = new FileResource(new File(basepath + "/WEB-INF/images/logo.png"));
@@ -86,5 +84,11 @@ public class LoginView extends GridLayout implements View{
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent event) {
 
+    }
+
+    @Override
+    public void buttonClick(Button.ClickEvent event) {
+        getSession().setAttribute("user", username.getValue());
+        getUI().getPage().setLocation(Paths.MAIN);
     }
 }

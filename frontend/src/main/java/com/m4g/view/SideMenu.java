@@ -1,6 +1,8 @@
 package com.m4g.view;
 
+import com.m4g.config.Paths;
 import com.vaadin.server.FontAwesome;
+import com.vaadin.server.Page;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
@@ -61,20 +63,25 @@ public class SideMenu extends CustomComponent {
             setCaption(view.getViewName().substring(0, 1).toUpperCase()
                     + view.getViewName().substring(1));
             //DashboardEventBus.register(this);
+            setDescription(view.getViewName());
             addClickListener(new ClickListener() {
                 @Override
                 public void buttonClick(final ClickEvent event) {
                     //UI.getCurrent().getNavigator()
                     //        .navigateTo(view.getViewName());
-                    if (UI.getCurrent().getContent() instanceof Dashboard) {
+
+
+                    Page.getCurrent().setUriFragment(event.getButton().getDescription());
+
+/*                    if (UI.getCurrent().getContent() instanceof DashboardView) {
                         try {
-                            ((Dashboard) UI.getCurrent().getContent()).setContent((Component) view.getViewClass().newInstance());
+                            ((DashboardView) UI.getCurrent().getContent()).setContent((Component) view.getViewClass().newInstance());
                         } catch (InstantiationException e) {
                             e.printStackTrace();
                         } catch (IllegalAccessException e) {
                             e.printStackTrace();
                         }
-                    }
+                    }*/
                 }
             });
         }
