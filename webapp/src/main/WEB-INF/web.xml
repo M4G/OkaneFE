@@ -15,35 +15,6 @@
         <param-value>/WEB-INF/spring/spring-context.xml</param-value>
     </context-param>
 
-    <!-- Vaadin servlet -->
-    <servlet>
-        <servlet-name>vaadinEntryPointServlet</servlet-name>
-        <servlet-class>
-            com.vaadin.spring.server.SpringVaadinServlet
-        </servlet-class>
-
-        <init-param>
-            <param-name>UI</param-name>
-            <param-value>com.m4g.ui.EntryPointUI</param-value>
-        </init-param>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>vaadinEntryPointServlet</servlet-name>
-        <url-pattern>/*</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>vaadinEntryPointServlet</servlet-name>
-        <url-pattern>/VAADIN/*</url-pattern>
-    </servlet-mapping>
-
-    <context-param>
-        <description>Vaadin production mode</description>
-        <param-name>productionMode</param-name>
-        <param-value>false</param-value>
-    </context-param>
-
     <!-- Static mapping -->
     <servlet-mapping>
         <servlet-name>default</servlet-name>

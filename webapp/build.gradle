@@ -4,5 +4,5 @@ dependencies {
     compile libraries.springMvc
     compile libraries.vaadinSpringAO
 
-    compile project(':login')
+    compile project(':frontend')
 }

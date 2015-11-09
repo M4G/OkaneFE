@@ -1,6 +1,11 @@
 /*apply from: 'http://plugins.jasoft.fi/vaadin.plugin'*/
 
 dependencies {
+    compile libraries.springCore
+    compile libraries.springWeb
+    compile libraries.springMvc
+
+    compile libraries.servletApi
     compile libraries.vaadinClient
     compile libraries.vaadinVaadinClientCompiled
     compile libraries.vaadinServer
@@ -9,8 +14,6 @@ dependencies {
     compile libraries.vaadinVaadinSassCompiler
 
     compile libraries.vaadinSpringAO
-
-    compile project(':localization')
 }
 
 /*

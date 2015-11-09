@@ -1,7 +1,3 @@
 include 'webapp',
-        'login',
-        'dashboard',
-        'manager',
-        'calendar',
-        'localization'
+        'frontend'
 
