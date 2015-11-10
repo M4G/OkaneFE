@@ -1,7 +1,7 @@
 package com.m4g.view;
 
-import com.vaadin.navigator.View;
-import com.vaadin.navigator.ViewChangeListener;
+import com.m4g.config.Views;
+import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.Calendar;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.components.calendar.CalendarComponentEvents;
@@ -12,11 +12,16 @@ import java.util.Date;
 /**
  * Created by MaxG on 09-May-15.
  */
-public class CalendarView extends VerticalLayout implements View {
+@SpringView(name = Views.CALENDAR)
+public class CalendarView extends MainAbstractView{
 
     private Calendar calendar;
+    private VerticalLayout layout;
 
-    public CalendarView(){
+    @Override
+    protected void addContent() {
+        layout = new VerticalLayout();
+        layout.setWidth(100, Unit.PERCENTAGE);
         calendar = new Calendar();
         calendar.setStartDate(new Date());
         java.util.Calendar cal = java.util.Calendar.getInstance();
@@ -34,7 +39,8 @@ public class CalendarView extends VerticalLayout implements View {
                     super.setDates(event, start, end);
                 }
             }});
-        addComponent(calendar);
+        layout.addComponent(calendar);
+        setContent(layout);
     }
 
     private boolean isThisYear(java.util.Calendar calendar, Date date) {
@@ -43,10 +49,5 @@ public class CalendarView extends VerticalLayout implements View {
         int endYear = cal.get(java.util.Calendar.YEAR);
         int todayYear = calendar.get(java.util.Calendar.YEAR);
         return endYear==todayYear;
-    }
-
-    @Override
-    public void enter(ViewChangeListener.ViewChangeEvent event) {
-
     }
 }

@@ -50,24 +50,15 @@ public class MainUI extends UI {
 
             @Override
             public boolean beforeViewChange(ViewChangeEvent event) {
+                boolean retVal = true;
 
-                // Check if a user has logged in
                 boolean isLoggedIn = getSession().getAttribute("user") != null;
-                boolean isLoginView = event.getNewView().equals(viewProvider.getView(Views.LOGIN));
-
-                if (!isLoggedIn && !isLoginView) {
-                    // Redirect to login view always if a user has not yet
-                    // logged in
-                    getNavigator().navigateTo(Views.LOGIN);
-                    return false;
-
-                } else if (isLoggedIn && isLoginView) {
-                    // If someone tries to access to login view while logged in,
-                    // then cancel
-                    return false;
+                if (!isLoggedIn) {
+                    getUI().getPage().setLocation(Paths.LOGIN);
+                    retVal = false;
                 }
 
-                return true;
+                return retVal;
             }
 
             @Override

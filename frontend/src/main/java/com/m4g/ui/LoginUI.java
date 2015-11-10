@@ -23,8 +23,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 @SpringUI
 public class LoginUI extends UI {
 
-
-
     @Autowired
     private SpringViewProvider viewProvider;
 

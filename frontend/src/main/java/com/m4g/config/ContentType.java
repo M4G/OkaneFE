@@ -1,16 +1,17 @@
-package com.m4g.view;
+package com.m4g.config;
 
+import com.m4g.view.CalendarView;
 import com.vaadin.navigator.Navigator.EmptyView;
 import com.vaadin.navigator.View;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.server.Resource;
 
 public enum ContentType {
-    DASHBOARD("dashboard", EmptyView.class, FontAwesome.HOME, true), SALES(
-            "sales", EmptyView.class, FontAwesome.BAR_CHART_O, false), TRANSACTIONS(
-            "transactions", EmptyView.class, FontAwesome.TABLE, false), REPORTS(
-            "reports", EmptyView.class, FontAwesome.FILE_TEXT_O, true), SCHEDULE(
-            "schedule", CalendarView.class, FontAwesome.CALENDAR_O, false);
+    DASHBOARD("dashboard", EmptyView.class, FontAwesome.HOME, true),
+    SALES("sales", EmptyView.class, FontAwesome.BAR_CHART_O, false),
+    TRANSACTIONS("transactions", EmptyView.class, FontAwesome.TABLE, false),
+    REPORTS("reports", EmptyView.class, FontAwesome.FILE_TEXT_O, true),
+    CALENDAR("calendar", CalendarView.class, FontAwesome.CALENDAR_O, false);
 
     private final String viewName;
     private final Class<? extends View> viewClass;
