@@ -1,14 +1,17 @@
-package com.m4g.view;
+package com.m4g.components;
 
-import com.m4g.config.Paths;
+import com.m4g.config.ContentType;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.server.Page;
 import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.spring.annotation.SpringComponent;
+import com.vaadin.spring.annotation.ViewScope;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 
+@ViewScope
+@SpringComponent
 public class SideMenu extends CustomComponent {
-
 
     public SideMenu() {
         setSizeUndefined();
@@ -62,26 +65,11 @@ public class SideMenu extends CustomComponent {
             setIcon(view.getIcon());
             setCaption(view.getViewName().substring(0, 1).toUpperCase()
                     + view.getViewName().substring(1));
-            //DashboardEventBus.register(this);
             setDescription(view.getViewName());
             addClickListener(new ClickListener() {
                 @Override
                 public void buttonClick(final ClickEvent event) {
-                    //UI.getCurrent().getNavigator()
-                    //        .navigateTo(view.getViewName());
-
-
-                    Page.getCurrent().setUriFragment(event.getButton().getDescription());
-
-/*                    if (UI.getCurrent().getContent() instanceof DashboardView) {
-                        try {
-                            ((DashboardView) UI.getCurrent().getContent()).setContent((Component) view.getViewClass().newInstance());
-                        } catch (InstantiationException e) {
-                            e.printStackTrace();
-                        } catch (IllegalAccessException e) {
-                            e.printStackTrace();
-                        }
-                    }*/
+                    Page.getCurrent().setUriFragment("!"+event.getButton().getDescription());
                 }
             });
         }
