@@ -56,4 +56,7 @@ project.libraries = [
     quartzJobs: "org.quartz-scheduler:quartz-jobs:2.2.1",
 
     guava: "com.google.guava:guava:17.0",
+
+    jodaTime: "joda-time:joda-time:2.3",
+
 ]

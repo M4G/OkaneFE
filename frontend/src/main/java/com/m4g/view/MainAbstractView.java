@@ -48,15 +48,13 @@ public abstract class MainAbstractView extends HorizontalLayout implements View 
         addStyleName("mainview");
         workspace.addComponent(header);
         workspace.setComponentAlignment(header, Alignment.MIDDLE_RIGHT);
-        content.setWidth(100, Unit.PERCENTAGE);
-        content.setHeight(100, Unit.PERCENTAGE);
+        content.setSizeFull();
         workspace.setWidth(100, Unit.PERCENTAGE);
         workspace.addComponent(content);
         addComponent(sideMenu);
         addComponent(workspace);
         setExpandRatio(workspace, 1.0f);
-        setWidth(100, Unit.PERCENTAGE);
-        setHeight(100, Unit.PERCENTAGE);
+        setSizeFull();
     }
 
     public void setContent(Component component){
