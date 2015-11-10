@@ -8,10 +8,11 @@ import com.vaadin.server.Resource;
 
 public enum ContentType {
     DASHBOARD("dashboard", EmptyView.class, FontAwesome.HOME, true),
-    SALES("sales", EmptyView.class, FontAwesome.BAR_CHART_O, false),
-    TRANSACTIONS("transactions", EmptyView.class, FontAwesome.TABLE, false),
-    REPORTS("reports", EmptyView.class, FontAwesome.FILE_TEXT_O, true),
-    CALENDAR("calendar", CalendarView.class, FontAwesome.CALENDAR_O, false);
+    ACCOUNTS("accounts", EmptyView.class, FontAwesome.BANK, false),
+    SCHEDULE("schedule", EmptyView.class, FontAwesome.CLOCK_O, false),
+    CALENDAR("calendar", CalendarView.class, FontAwesome.CALENDAR_O, false),
+    REPORTS("reports", EmptyView.class, FontAwesome.FILE_TEXT_O, true);
+
 
     private final String viewName;
     private final Class<? extends View> viewClass;
